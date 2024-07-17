@@ -11,7 +11,7 @@ async function carregarDados(){
       });
 
       const result = await response.json();
-
+      localStorage.setItem('usuarios',JSON.stringify(dados))
       if (response.ok) {
         alert('Registrado com sucesso!');
       } else {
@@ -21,11 +21,6 @@ async function carregarDados(){
     } catch (error) {
       console.error('Erro ao registrar:', error);
     }
-   const response = await fetch(`${apiUrl}/register`)
-   let data = await response.json()
-   let dados = data.alunos
-
-   localStorage.setItem('usuarios',JSON.stringify(dados))
 }
 
 carregarDados();

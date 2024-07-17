@@ -53,6 +53,7 @@ if(botaoLogin){
             console.log(response)
 
             const result = await response.json();
+            console.log(result)
             console.log(result.user)
 
             localStorage.setItem('usuarioLogado',JSON.stringify(result.user))
@@ -85,7 +86,7 @@ if(botaoLogin){
 
         console.log( emailLogin, senhaLogin, usuario_logado, usuario_logado_email)
         if(usuario_logado_email === emailLogin){
-            window.location.href = "../boas_vindas/index.html"
+           // window.location.href = "../boas_vindas/index.html"
         }
     })
 }

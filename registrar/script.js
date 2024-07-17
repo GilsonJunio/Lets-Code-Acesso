@@ -15,7 +15,8 @@ async function carregarDados(){
       if (response.ok) {
         alert('Registrado com sucesso!');
       } else {
-        alert(`Erro: ${result.error}`);
+        alert(`OLÁ! VAMOS CADASTRAR UM NOVO USUÁRIO!`);
+//        alert(`Erro: ${result.error}`);
       }
     } catch (error) {
       console.error('Erro ao registrar:', error);
@@ -72,7 +73,7 @@ if (botaoRegistrar) {
         }
 
         if(mesmoEmail(email) === false && camposVazios() === false){
-            alert('111111111')
+            alert('CADASTRO REALIZADO COM SUCESSO!')
             let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
             usuarios.push({ usuario, email, idade, cidade, foto, password });
             localStorage.setItem("usuarios", JSON.stringify(usuarios));

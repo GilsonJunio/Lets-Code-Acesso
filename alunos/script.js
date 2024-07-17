@@ -1,33 +1,44 @@
-const container = document.getElementById("container");
+async function carregarDados(){
+    let response = await fetch('https://raw.githubusercontent.com/GilsonJunio/Alunos-Do-Lets-Code-2024/main/data.json')
+    let data = await response.json()
+    let dados = data.alunos
+    console.log(dados)
 
-const getAlunos = () => {
-  const usuarios = JSON.parse(localStorage.getItem('usuarios'));
-  return usuarios;
+    localStorage.setItem('alunos',JSON.stringify(dados))
+    console.log(data)
 }
+carregarDados()
+
+
 
 function listarAlunos() {
-  let alunos = getAlunos();
-  alunos.map(aluno => {
+const usuarios = JSON.parse(localStorage.getItem('alunos'));
+  console.log(usuarios)
+  usuarios.map(usuarios => {
     const div = document.createElement('div');
+    
     const nome = document.createElement('h1');
-    nome.textContent = aluno.usuario;
+    nome.textContent = usuarios.usuario;
     div.appendChild(nome);
+    
     const foto = document.createElement('img');
-    foto.setAttribute('src', aluno.foto);
+    foto.setAttribute('src', usuarios.foto);
     div.appendChild(foto);
+    
     const idade = document.createElement('p');
-    idade.innerHTML = `Idade: ${aluno.idade}`;
+    idade.innerHTML = `Idade: ${usuarios.idade}`;
     div.appendChild(idade);
+    
     const email = document.createElement('p');
-    email.innerHTML = `Email: ${aluno.email}`;
+    email.innerHTML = `Email: ${usuarios.email}`;
     div.appendChild(email);
+    
     const cidade = document.createElement('p');
-    cidade.innerHTML = `Cidade: ${aluno.cidade}`;
+    cidade.innerHTML = `Cidade: ${usuarios.cidade}`;
     div.appendChild(cidade);
     container.appendChild(div);
   });
 }
-
-window.onload(listarAlunos());
+listarAlunos()
 
 

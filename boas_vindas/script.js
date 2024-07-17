@@ -31,7 +31,7 @@ if(tituloDaSecao){
 
     imagem.setAttribute('src', usuario.foto)
 
-    tituloDaSecao.textContent += usuario.usuario + '!'
+    tituloDaSecao.textContent += usuario.nome + '!'
     titulo.appendChild(tituloDaSecao)
     titulo.appendChild(imagem)
     titulo.appendChild(descricao)

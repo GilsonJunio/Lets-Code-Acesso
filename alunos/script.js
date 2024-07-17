@@ -40,5 +40,5 @@ const usuarios = JSON.parse(localStorage.getItem('alunos'));
   });
 }
 listarAlunos()
-
+window.Onload(listarAlunos())
 
